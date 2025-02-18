@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/gadgets#"
+     xml:base="http://www.semanticweb.org/gadgets"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    
+    <owl:Ontology rdf:about="http://www.semanticweb.org/gadgets"/>
+
+    <!-- Классы -->
+    <owl:Class rdf:about="#Гаджет"/>
+    <owl:Class rdf:about="#Ноутбук">
+        <rdfs:subClassOf rdf:resource="#Гаджет"/>
+    </owl:Class>
+    <owl:Class rdf:about="#Смартфон">
+        <rdfs:subClassOf rdf:resource="#Гаджет"/>
+    </owl:Class>
+    <owl:Class rdf:about="#Планшет">
+        <rdfs:subClassOf rdf:resource="#Гаджет"/>
+    </owl:Class>
+    <owl:Class rdf:about="#Бренд"/>
+    <owl:Class rdf:about="#Диапазон_цен"/>
+    <owl:Class rdf:about="#Производительность"/>
+
+    <!-- Свойства -->
+    <owl:ObjectProperty rdf:about="#имеет_цену">
+        <rdfs:domain rdf:resource="#Гаджет"/>
+        <rdfs:range rdf:resource="#Диапазон_цен"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="#производится_брендом">
+        <rdfs:domain rdf:resource="#Гаджет"/>
+        <rdfs:range rdf:resource="#Бренд"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="#обладает_производительностью">
+        <rdfs:domain rdf:resource="#Гаджет"/>
+        <rdfs:range rdf:resource="#Производительность"/>
+    </owl:ObjectProperty>
+
+    <!-- Экземпляры брендов -->
+    <owl:NamedIndividual rdf:about="#Apple">
+        <rdf:type rdf:resource="#Бренд"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Samsung">
+        <rdf:type rdf:resource="#Бренд"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Lenovo">
+        <rdf:type rdf:resource="#Бренд"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Asus">
+        <rdf:type rdf:resource="#Бренд"/>
+    </owl:NamedIndividual>
+
+    <!-- Экземпляры ценовых диапазонов -->
+    <owl:NamedIndividual rdf:about="#Дорогой">
+        <rdf:type rdf:resource="#Диапазон_цен"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Средний">
+        <rdf:type rdf:resource="#Диапазон_цен"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Бюджетный">
+        <rdf:type rdf:resource="#Диапазон_цен"/>
+    </owl:NamedIndividual>
+
+    <!-- Экземпляры гаджетов -->
+    <owl:NamedIndividual rdf:about="#MacBook_Pro">
+        <rdf:type rdf:resource="#Ноутбук"/>
+        <имеет_цену rdf:resource="#Дорогой"/>
+        <производится_брендом rdf:resource="#Apple"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Galaxy_Tab">
+        <rdf:type rdf:resource="#Планшет"/>
+        <имеет_цену rdf:resource="#Средний"/>
+        <производится_брендом rdf:resource="#Samsung"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Lenovo_ThinkPad">
+        <rdf:type rdf:resource="#Ноутбук"/>
+        <имеет_цену rdf:resource="#Средний"/>
+        <производится_брендом rdf:resource="#Lenovo"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Asus_Zenfone">
+        <rdf:type rdf:resource="#Смартфон"/>
+        <имеет_цену rdf:resource="#Бюджетный"/>
+        <производится_брендом rdf:resource="#Asus"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>
